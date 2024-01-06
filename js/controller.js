@@ -4,16 +4,19 @@ function renderNd() {
         let data = dsNguoiDung[i];
         let string = `
             <tr>
-                <td>${data.taiKhoan}</td>
-                <td>${data.name}</td>
-                <td>${data.email}</td>
+                <td style="vertical-align: middle">${data.taiKhoan}</td>
+                <td style="vertical-align: middle">${ data.name}</td>
+                <td style="vertical-align: middle">${ data.email}</td>
                 
-                <td>${data.datePicker}</td>
-                <td>${data.chucVu}</td>
-                <td>${data.tongLuong()}</td>
+                <td style="vertical-align: middle">${ data.datePicker}</td>
+                <td style="vertical-align: middle">${ data.chucVu}</td>
+                <td style="vertical-align: middle">${ data.tongLuong()}</td>
                 
-                <td>${data.xepLoai()}</td>
-                <td> <button class="btn btn-danger" onclick="xoaNd('${data.taiKhoan}')" >Xóa</button>  </td>
+                <td style="vertical-align: middle">${ data.xepLoai()}</td>
+                <td style="vertical-align: middle">  
+                <button class="btn btn-danger" onclick="xoaNd('${data.taiKhoan}')" >Xóa</button> <br> <br>
+                <button class="btn btn-danger" onclick="edit('${data.taiKhoan}')"  data-toggle="modal" data-target="#myModal">Edit</button>
+                </td>
                 
             </tr>  `;
 
@@ -52,10 +55,10 @@ function layThongTinTuForm(){
         },
         xepLoai: function () {
             let xepLoai = "";
-            if (this.gioLam >= 192) { xepLoai = "Nhân Viên Xuất Xắc" };
-            if (this.gioLam >= 176) { xepLoai = "Nhân Viên Giỏi" };
-            if (this.gioLam >= 160) { xepLoai = "Nhân Viên Khá" };
-            if (this.gioLam < 160) { xepLoai = "Nhân Viên Trung Bình" };
+            if (this.gioLam < 160) { xepLoai = "Trung Bình" } 
+            else if (this.gioLam >= 160 & this.gioLam < 176 ) { xepLoai = "Khá" }
+            else if  (this.gioLam >= 176 & this.gioLam < 192) { xepLoai = "Giỏi" }
+            else  { xepLoai = "Xuất Xắc" };
             return xepLoai;
         },
     };

@@ -25,10 +25,10 @@ function nguoiDung(
     };
     this.xepLoai = function () {
         let xepLoai = "";
-        if (this.gioLam >= 192) { xepLoai = "Nhân Viên Xuất Xắc" };
-        if (this.gioLam >= 176) { xepLoai = "Nhân Viên Giỏi" };
-        if (this.gioLam >= 160) { xepLoai = "Nhân Viên Khá" };
-        if (this.gioLam < 160) { xepLoai = "Nhân Viên Trung Bình" };
+        if (this.gioLam < 160) { xepLoai = "Trung Bình" }
+        else if (this.gioLam >= 160 & this.gioLam < 176) { xepLoai = "Khá" }
+        else if (this.gioLam >= 176 & this.gioLam < 192) { xepLoai = "Giỏi" }
+        else { xepLoai = "Xuất Xắc" };
         return xepLoai;
     };
 }
